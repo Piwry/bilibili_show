@@ -12,7 +12,7 @@ buy_url = "https://show.bilibili.com/platform/detail.html?id=73710&from=pc_ticke
 
 day=int(input("\n请输入购票的日期，1表示21号，2表示22号，3表示23号\n"))
 user_lis=int(input("\n请输入购票人员身份序列号，以空格分隔（例如第1、3、4人则输入：1 3 4）："))
-user_list=user_lis.split(" ")
+user_list=str(user_lis).split(" ")
 print(day)
 # 设置购票的日期
 day_xpath  = f"/html/body/div/div[2]/div[2]/div[2]/div[2]/div[4]/ul[1]/li[2]/div["+str(day)+"]"
@@ -60,7 +60,7 @@ if len(config["bilibili_cookies"]) == 0:
 else:
     WebDriver.get(
         buy_url)  # 输入目标购买页面
-    for cookie in config["bilibili_cookies"]:  # 利用cookies登录账号
+    for cookie in config["bilibili_cookies"][0]:  # 利用cookies登录账号
         my_cookie = {
             'domain': cookie['domain'],
             'name': cookie['name'],
@@ -90,15 +90,15 @@ while True:
 
 while True:
     try:
-        if day_xpath != "":
-            element = wait.until(EC.visibility_of_element_located(
-                (By.XPATH, day_xpath)))
-            element.click()
+   #     if day_xpath != "":
+  #          element = wait.until(EC.visibility_of_element_located(
+ #               (By.XPATH, day_xpath)))
+#            element.click()
             #增加购买人数
-            element = wait.until(EC.visibility_of_element_located(
-                (By.CLASS_NAME, "count-plus")))
-            for i in range(len(user_list)):
-                element.click()
+#            element = wait.until(EC.visibility_of_element_located(
+#                (By.CLASS_NAME, "count-plus")))
+#            for i in range(len(user_list)):
+#                element.click()
 
             #element = wait.until(EC.visibility_of_element_located(
                 #(By.XPATH, tick_xpath)))
@@ -138,20 +138,34 @@ while True:
 element = None
 while element is None:
     try:
+        element=WebDriver.find_element(By.CLASS_NAME, "check-icon")
+    except:
+        continue
+element.click()
+element = None
+while element is None:
+    try:
         element=WebDriver.find_element(By.CLASS_NAME, "confirm-paybtn.active")
     except:
         continue
 element.click()
+
+
 print("订单创建完成，请在一分钟内付款")
 voice('二次元，你的票买到了，快付款')
 # 语音提醒时间
+
+
+
 time.sleep(60)
-while True:
-    try:# 确认协议按钮iki
-        quereng_button = WebDriver.find_elements(By.XPATH, "/html/body/div/div[2]/div/div[5]/div[1]/div/span[1]").click()
-        # 确认支付按钮
-        quereng_zhifu_button = WebDriver.find_elements(By.XPATH, "/html/body/div/div[2]/div/div[5]/div[2]").click()
-        print("该付款了")
-    except:
-        continue
+
+#while True:
+#    try:# 确认协议按钮iki
+#        quereng_button = WebDriver.find_elements(By.XPATH, "/html/body/div/div[2]/div/div[5]/div[1]/div/span[1]").click()
+#        # 确认支付按钮
+#        quereng_zhifu_button = WebDriver.find_elements(By.XPATH, "/html/body/div/div[2]/div/div[5]/div[2]").click()
+#        print("该付款了")
+#    except:
+#        continue
+
 time.sleep(230721)

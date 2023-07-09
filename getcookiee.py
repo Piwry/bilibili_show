@@ -1,4 +1,5 @@
 """
+只是 登录b站并且获取网页端cookie.py 的副本
 bilibili网站登录后获取网页端cookie
 """
 import time
@@ -19,7 +20,7 @@ time.sleep(50)
 # 读取登录之后浏览器的cookies
 dictcookies = web.get_cookies()
 dic={}
-dic['bilibili_cookies']=[dictcookies] #
+dic['bilibili_cookies']=[dictcookies] ##谁加的 []（（
 # 将字典数据转成json数据便于保存
 jsoncookies = json.dumps(dic)
 # 写进文本保存
@@ -27,6 +28,6 @@ with open('cookie.json','w') as f:
     f.write(jsoncookies)
 print('cookies is ok')
 
-web.get('https://www.bilibili.com/bangumi/play/ep316326/?share_source=copy_web&t=10921')
+#web.get('https://www.bilibili.com/bangumi/play/ep316326/?share_source=copy_web&t=10921')
 
-sleep(131003)
+sleep(114)
