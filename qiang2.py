@@ -42,8 +42,8 @@ TargetTime = "2013-10-3 8:00:00.00000000"
 WebDriver = webdriver.Chrome()
 wait = WebDriverWait(WebDriver, 0.5)
 if len(config["bilibili_cookies"]) == 0:
-    print("请设置 cookie")
-    time.sleep(1000)
+    print("请运行 getcookiee.py 设置 cookie")
+    exit(0)
 else:
     WebDriver.get(
         buy_url)  # 输入目标购买页面
