@@ -24,7 +24,6 @@ def voice(message):
     engine.say(message)
     engine.runAndWait()
     engine.stop()
-    voice(message)
 
 # 设置抢购时间
 TargetTime = "2013-10-3 8:00:00.00000000"
@@ -85,8 +84,7 @@ while True:
         continue
 
 print("订单创建完成，请在一分钟内付款")
-voice('快付款捏捏捏')
-time.sleep(0.5)
 WebDriver.get_screenshot_as_file("screee.png")
 # 语音提醒时间
-time.sleep(1145)
+for i in range(1145):
+    voice('快付款捏捏捏')

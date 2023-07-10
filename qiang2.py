@@ -54,6 +54,8 @@ else:
     WebDriver.maximize_window()
     WebDriver.refresh()
 
+startt  = int(input("输入任意数字开始运行"))
+
 #while True:
 #    now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 #    print(now + "     " + TargetTime)

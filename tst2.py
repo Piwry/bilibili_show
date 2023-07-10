@@ -70,9 +70,10 @@ while True:
         WebDriver.refresh()
         continue
 
-#time.sleep(3)
+time.sleep(3)
 #time.sleep(100)
 
+WebDriver.get_screenshot_as_file("scree.png")
 
 element1 = None
 element = None
