@@ -86,5 +86,7 @@ while True:
 
 print("订单创建完成，请在一分钟内付款")
 voice('快付款捏捏捏')
+time.sleep(0.5)
+WebDriver.get_screenshot_as_file("screee.png")
 # 语音提醒时间
 time.sleep(1145)
