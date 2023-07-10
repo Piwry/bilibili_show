@@ -1,4 +1,4 @@
-# BW2023 抢票
+# WB2023
 ### 使用方法
 1. 按照`requirements.txt`安装库
 2. 运行 getcookiee.py 配置 cookie
